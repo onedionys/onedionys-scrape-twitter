@@ -200,7 +200,6 @@ async function getTwitter(req, res) {
         });
     } catch (error) {
         console.error('Error getting Twitter data:', error);
-
         res.status(500).json({ error: 'Internal server error' });
     }
 }
