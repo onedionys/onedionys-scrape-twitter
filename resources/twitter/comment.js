@@ -167,11 +167,14 @@ async function getTwitter(req, res) {
         let csrf = req.body.csrf
         let cookie = req.body.cookie;
         let page = req.body.page > 0 ? req.body.page : 1;
+        let count = req.body.count > 0 ? req.body.count : 200;
         let dataArray = [];
         let arrFinal = [];
 
         if(page > 10) {
             res.status(500).json({ error: 'Maximum page is 10' });
+        }else if(count > 200) {
+            res.status(500).json({ error: 'Maximum count is 200' });
         }
 
         globalCursor = 'Unknown';
@@ -188,10 +191,12 @@ async function getTwitter(req, res) {
                 });
             });
         }
+
+        let arrSlice = arrFinal.slice(0, count);
     
         res.status(200).json({
-            length: arrFinal.length,
-            data: arrFinal
+            length: arrSlice.length,
+            data: arrSlice
         });
     } catch (error) {
         console.error('Error getting Twitter data:', error);
