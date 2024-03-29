@@ -37,6 +37,7 @@
 * `csrf`: Required to add CSRF (DYOR) #string.
 * `cookie`: Of course, this cookie must also be added when sending a request (DYOR) #string.
 * `page`: Number of pages to retrieve #int.
+* `count`: Number of count to retrieve replies #int.
 
 #### Return Value
 
