@@ -1,0 +1,46 @@
+{
+  "name": "onedionys-scrape-twitter",
+  "version": "1.0.0",
+  "description": "One Dionys (Scrape Twitter) - Functions used to retrieve data aka scraping twitter comment data based on keywords and the latest.",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onedionys/onedionys-scrape-twitter.git"
+  },
+  "keywords": [
+    "onedionys",
+    "tea",
+    "package-manager",
+    "scrape-twitter",
+    "scrap",
+    "twitter"
+  ],
+  "author": "One Dionys",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onedionys/onedionys-scrape-twitter/issues"
+  },
+  "homepage": "https://github.com/onedionys/onedionys-scrape-twitter#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.11.1",
+    "vercel": "^33.6.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.1",
+    "helmet": "^7.1.0",
+    "node-fetch": "^2.7.0",
+    "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.4.0"
+  }
+}
