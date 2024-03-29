@@ -153,10 +153,18 @@ async function fetchingData(parameter, authorization, csrf, cookie, page = 1, cu
             }
         });
 
-        return commentList;
+        return {
+            status: true,
+            list: commentList,
+            error: null
+        };
     } catch (error) {
         console.error('Error fetching data:', error);
-        return [];
+        return {
+            status: false,
+            list: [],
+            error: error
+        };
     }
 }
 
@@ -169,6 +177,7 @@ async function getTwitter(req, res) {
         let page = req.body.page > 0 ? req.body.page : 1;
         let count = req.body.count > 0 ? req.body.count : 200;
         let dataArray = [];
+        let errorArray = [];
         let arrFinal = [];
 
         if(page > 10) {
@@ -181,7 +190,11 @@ async function getTwitter(req, res) {
 
         for (let i = 1; i <= page; i++) {
             var data = await fetchingData(parameter, authorization, csrf, cookie, i, globalCursor);
-            dataArray.push(data);
+            if(data.status == true) {
+                dataArray.push(data.list);
+            }else {
+                errorArray.push(data.error);
+            }
         }
 
         if(dataArray.length > 0) {
@@ -199,7 +212,8 @@ async function getTwitter(req, res) {
             status_code: 200,
             message: "Berhasil mendapatkan komentar twitter",
             info_error: null,
-            data: arrSlice
+            data: arrSlice,
+            error: errorArray
         });
     } catch (error) {
         console.error('Error getting Twitter data:', error);
