@@ -170,6 +170,10 @@ async function getTwitter(req, res) {
         let dataArray = [];
         let arrFinal = [];
 
+        if(page > 10) {
+            res.status(500).json({ error: 'Maximum page is 10' });
+        }
+
         globalCursor = 'Unknown';
 
         for (let i = 1; i <= page; i++) {
