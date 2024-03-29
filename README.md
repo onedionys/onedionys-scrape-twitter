@@ -32,11 +32,11 @@
 * `comment`: Retrieve comment data based on keywords.
 
 #### Payload
-* `keyword`: Keyword to search data and retrieve only comment data.
-* `authorization`: Common authentication required before using APIs (DYOR).
-* `csrf`: Required to add CSRF (DYOR).
-* `cookie`: Of course, this cookie must also be added when sending a request (DYOR).
-* `page`: Number of pages to retrieve.
+* `keyword`: Keyword to search data and retrieve only comment data #string.
+* `authorization`: Common authentication required before using APIs (DYOR) #string.
+* `csrf`: Required to add CSRF (DYOR) #string.
+* `cookie`: Of course, this cookie must also be added when sending a request (DYOR) #string.
+* `page`: Number of pages to retrieve #int.
 
 #### Return Value
 
