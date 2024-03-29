@@ -195,12 +195,21 @@ async function getTwitter(req, res) {
         let arrSlice = arrFinal.slice(0, count);
     
         res.status(200).json({
-            length: arrSlice.length,
+            status: 1,
+            status_code: 200,
+            message: "Berhasil mendapatkan komentar twitter",
+            info_error: null,
             data: arrSlice
         });
     } catch (error) {
         console.error('Error getting Twitter data:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        res.status(500).json({
+            status: 0,
+            status_code: 422,
+            message: "Gagal mendapatkan komentar twitter",
+            info_error: error,
+            data: null
+        });
     }
 }
 
