@@ -170,51 +170,59 @@ async function fetchingData(parameter, authorization, csrf, cookie, page = 1, cu
 
 async function getTwitter(req, res) {
     try {
-        let parameter = encodeURIComponent(req.body.keyword);
-        let authorization = req.body.authorization;
-        let csrf = req.body.csrf
-        let cookie = req.body.cookie;
-        let page = req.body.page > 0 ? req.body.page : 1;
-        let count = req.body.count > 0 ? req.body.count : 200;
-        let dataArray = [];
-        let errorArray = [];
-        let arrFinal = [];
+        // let parameter = encodeURIComponent(req.body.keyword);
+        // let authorization = req.body.authorization;
+        // let csrf = req.body.csrf
+        // let cookie = req.body.cookie;
+        // let page = req.body.page > 0 ? req.body.page : 1;
+        // let count = req.body.count > 0 ? req.body.count : 200;
+        // let dataArray = [];
+        // let errorArray = [];
+        // let arrFinal = [];
 
-        if(page > 10) {
-            res.status(500).json({ error: 'Maximum page is 10' });
-        }else if(count > 200) {
-            res.status(500).json({ error: 'Maximum count is 200' });
-        }
+        // if(page > 10) {
+        //     res.status(500).json({ error: 'Maximum page is 10' });
+        // }else if(count > 200) {
+        //     res.status(500).json({ error: 'Maximum count is 200' });
+        // }
 
-        globalCursor = 'Unknown';
+        // globalCursor = 'Unknown';
 
-        for (let i = 1; i <= page; i++) {
-            var data = await fetchingData(parameter, authorization, csrf, cookie, i, globalCursor);
-            if(data.status == true) {
-                dataArray.push(data.list);
-            }else {
-                errorArray.push(data.error);
-            }
-        }
+        // for (let i = 1; i <= page; i++) {
+        //     var data = await fetchingData(parameter, authorization, csrf, cookie, i, globalCursor);
+        //     if(data.status == true) {
+        //         dataArray.push(data.list);
+        //     }else {
+        //         errorArray.push(data.error);
+        //     }
+        // }
 
-        if(dataArray.length > 0) {
-            dataArray.forEach((row, index) => {
-                row.forEach((value, key) => {
-                    arrFinal.push(value);
-                });
-            });
-        }
+        // if(dataArray.length > 0) {
+        //     dataArray.forEach((row, index) => {
+        //         row.forEach((value, key) => {
+        //             arrFinal.push(value);
+        //         });
+        //     });
+        // }
 
-        let arrSlice = arrFinal.slice(0, count);
+        // let arrSlice = arrFinal.slice(0, count);
     
-        res.status(200).json({
+        // res.status(200).json({
+        //     status: 1,
+        //     status_code: 200,
+        //     message: "Berhasil mendapatkan komentar twitter",
+        //     info_error: null,
+        //     data: arrSlice,
+        //     error: errorArray
+        // });
+
+        res.json({
             status: 1,
             status_code: 200,
-            message: "Berhasil mendapatkan komentar twitter",
+            message: "API twitter sudah tidak tersedia karena batas limit pemakaian.",
             info_error: null,
-            data: arrSlice,
-            error: errorArray
-        });
+            data: null
+        })
     } catch (error) {
         console.error('Error getting Twitter data:', error);
         res.status(500).json({
