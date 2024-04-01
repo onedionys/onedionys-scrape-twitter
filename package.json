@@ -1,6 +1,6 @@
 {
   "name": "onedionys-scrape-twitter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "One Dionys (Scrape Twitter) - Functions used to retrieve data aka scraping twitter comment data based on keywords and the latest.",
   "main": "app.js",
   "directories": {

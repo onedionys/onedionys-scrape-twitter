@@ -46,6 +46,7 @@
 ## 📆 Release Date
 
 * v1.0.0 : 29 March 2024
+* v1.0.1 : 01 April 2024
 
 ## 🧑 Author
 
