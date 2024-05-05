@@ -19,7 +19,7 @@ app.use(helmet());
 app.get('/', index.getTwitter);
 app.post('/comment', comment.getTwitter);
 
-app.post('/sepolia/home', home.getSepolia);
+app.get('/sepolia/home', home.getSepolia);
 app.post('/sepolia/transaction', transaction.getSepolia);
 
 app.listen(port, () => {
