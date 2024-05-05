@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-async function getTwitter(authorization, address) {
+async function getUser(authorization, address) {
     const url = "https://sepolia.basescan.org/token/0x87c51cd469a0e1e2af0e0e597fd88d9ae4baa967"
 
     const options = {
@@ -31,6 +31,18 @@ async function getTwitter(authorization, address) {
         return html;
     } catch(error) {
         return error;
+    }
+}
+
+async function getTwitter(req, res) {
+    try {
+        let fetchUser = await getUser();
+
+        res.status(200).send(fetchUser);
+    } catch (error) {
+        res.status(422).json({
+            data: null
+        });
     }
 }
 
